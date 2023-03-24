@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { trendingMovies } from "services/getMovie";
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -20,12 +21,13 @@ const Home = () => {
     }, []);
 
     return (
-        <>
-        <ul>
-            {movies.map(movie => <li key={movie.id}>{movie.title}</li>)}
-        </ul>
-        {error && <p>Ooooops... something went wrong 😥 {error}</p>}
-        </>
+        <div>
+          <ul>
+            {movies.map(movie => <li key={movie.id}> <Link to={`${movie.id}`}>{movie.title}</Link> </li>)}
+          </ul>
+            
+          {error && <p>Ooooops... something went wrong 😥 {error}</p>}
+        </div>
     );
   };
 

@@ -26,7 +26,7 @@ export async function searchMovie (name, page = 1){
         }
     }
     const response = await axios(config);
-    return response.data;
+    return response;
 };
 
 export async function movieById (movie_id){
@@ -38,7 +38,7 @@ export async function movieById (movie_id){
         }
     }
     const response = await axios(config);
-    return response.data;
+    return response;
 };
 
 export async function movieCredits (movie_id){
@@ -50,7 +50,7 @@ export async function movieCredits (movie_id){
         }
     }
     const response = await axios(config);
-    return response.data;
+    return response;
 };
 
 export async function movieReviews (movie_id) {
@@ -63,5 +63,5 @@ export async function movieReviews (movie_id) {
         }
     }
     const response = await axios(config);
-    return response.data; 
+    return response; 
 };
