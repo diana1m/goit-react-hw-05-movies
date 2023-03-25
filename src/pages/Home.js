@@ -23,10 +23,10 @@ const Home = () => {
     return (
         <div>
           <ul>
-            {movies.map(movie => <li key={movie.id}> <Link to={`${movie.id}`}>{movie.title}</Link> </li>)}
+            {movies.map(movie => <li key={movie.id}> <Link to={`/movies/${movie.id}`}>{movie.title}</Link> </li>)}
           </ul>
             
-          {error && <p>Ooooops... something went wrong 😥 {error}</p>}
+          {error && <p>Ooooops... {error}</p>}
         </div>
     );
   };
