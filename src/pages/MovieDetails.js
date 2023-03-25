@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState, Suspense  } from 'react';
+import { Link, Outlet, useParams,  useLocation} from 'react-router-dom';
+import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
 
 import { movieById } from 'services/getMovie';
 
@@ -9,6 +10,7 @@ const MovieDetails = () => {
 
   const { movieId } = useParams();
 
+  const location = useLocation();
   useEffect(() => {
     const getMovieInfo = async () => {
       try {
@@ -23,13 +25,13 @@ const MovieDetails = () => {
   }, [movieId]);
   
   if (!movie) return;
-  
-  console.log(movie);
+
+  const goBackLink = location.state?.from ?? '/';
  
   return (
     
     <main>
-
+      <GoBackBtn path={goBackLink}>Go Back</GoBackBtn>
       {error && <p>Ooooops... {error}</p>}
       <div> 
         <h1>{movie.title}</h1>
@@ -40,12 +42,17 @@ const MovieDetails = () => {
         <h2>Genres</h2>
         <p>{movie.genres.map(genre => genre.name + " ")}</p>
       </div>
+
+      <div>
+        <Link to = "cast">Cast </Link>
+        <Link to = "reviews"> Reviews</Link>
+      </div>
       
       {/* <MovieCard movie={movie} /> */}
 
-      {/* <Suspense fallback={<Loader />}>
+      <Suspense fallback={<div>Loading page...</div>}>
         <Outlet />
-      </Suspense> */}
+      </Suspense>
     </main>
   );
 };

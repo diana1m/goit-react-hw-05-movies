@@ -7,8 +7,8 @@ export const SharedLayout = () => {
     <div>
       <header>
         <nav>
-            <NavLink to="/" end>  Home</NavLink>
-            <NavLink to="/movies">Movies</NavLink>
+            <NavLink to="/" end>  Home </NavLink>
+            <NavLink to="/movies"> Movies </NavLink>
         </nav>
       </header>
       <Suspense fallback={<div>Loading page...</div>}>
