@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useSearchParams} from 'react-router-dom';
 import { searchMovie } from 'services/getMovie';
 import { SearchForm } from '../components/SearchForm/SearchForm';
-import { MovieCard } from 'components/MovieCard/MovieCard';
 import { MovieList } from 'components/MovieList/MovieList';
 
 const Movies = () => {
@@ -34,8 +33,8 @@ const Movies = () => {
 
     return (
       <div>
-         <p>Movies</p>
          {error && <p>Ooooops... {error}</p>}
+         
         <SearchForm onSubmit={onSubmit}/>
         
         <MovieList movies = {movies} />

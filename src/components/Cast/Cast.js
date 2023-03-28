@@ -28,7 +28,7 @@ const Cast = () => {
             {error && <p>Ooooops... {error}</p>}
             <ul>
                 {cast.map(actor=> <li key={actor.id}>
-                    <img src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt={actor.name} width="150px"/>
+                    <img src={actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.profile_path}` : "https://ace.edu/wp-content/uploads/2022/02/user-thumbnail-icon.png"} alt={actor.name} width="150px"/>
                     <p>{actor.name}</p>
                     <p>Character: {actor.character}</p>
                 </li>)}

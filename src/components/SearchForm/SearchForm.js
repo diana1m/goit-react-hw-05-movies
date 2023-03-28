@@ -1,3 +1,4 @@
+import { Form, Button, Input, Icon} from "./SearchForm.styled";
 
 export const SearchForm = ({onSubmit}) => {
 
@@ -8,15 +9,17 @@ export const SearchForm = ({onSubmit}) => {
       };
     
       return (
-        <form onSubmit={handleSubmit}>
-          <input
+        <Form onSubmit={handleSubmit}>
+          <Input
             type="text"
             name="search"
             placeholder="search movies"
             required
           />
-          <button type="submit">Submit</button>
-        </form>
+          <Button type="submit">
+            <Icon/>
+          </Button>
+        </Form>
       );
     };
 

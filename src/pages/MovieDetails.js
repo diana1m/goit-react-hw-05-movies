@@ -27,15 +27,16 @@ const MovieDetails = () => {
   if (!movie) return;
 
   const goBackLink = location.state?.from ?? '/';
+
+  const image = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923" ;
  
   return (
-    
     <main>
       <GoBackBtn path={goBackLink}>Go Back</GoBackBtn>
       {error && <p>Ooooops... {error}</p>}
       <div> 
         <h1>{movie.title}</h1>
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster" width='300px'/>
+        <img src={image} alt="poster" width='300px'/>
         <p>User score: {Math.round(movie.vote_average * 10)}%</p>
         <h2>Overview</h2>
         <p>{movie.overview}</p>
