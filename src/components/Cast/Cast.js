@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { movieCredits } from 'services/getMovie';
+import { List, Item, Name } from './Cast.styled';
 
 const Cast = () => {
     const [cast, setCast] = useState(null);
@@ -26,13 +27,14 @@ const Cast = () => {
     return (
         <div>
             {error && <p>Ooooops... {error}</p>}
-            <ul>
-                {cast.map(actor=> <li key={actor.id}>
-                    <img src={actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.profile_path}` : "https://ace.edu/wp-content/uploads/2022/02/user-thumbnail-icon.png"} alt={actor.name} width="150px"/>
-                    <p>{actor.name}</p>
+            <List>
+                {cast.map(actor=> 
+                <Item key={actor.id}>
+                    <img src={actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.profile_path}` : "https://ace.edu/wp-content/uploads/2022/02/user-thumbnail-icon.png"} alt={actor.name} width="150px" height="225px"/>
+                    <Name>{actor.name}</Name>
                     <p>Character: {actor.character}</p>
-                </li>)}
-            </ul>
+                </Item>)}
+            </List>
         </div>
             
         );

@@ -11,7 +11,7 @@ export const Btn = styled(Link)`
     letter-spacing: 0.06em;
     border: 1px solid grey;
     border-radius: 4px;
-    margin-bottom: 60px;
+    margin-top: 40px;
     padding: 12px 18px;
     cursor: pointer;
     transition: background-color 500ms linear;

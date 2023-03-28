@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Item = styled.li`
-    width: 150px;
+    width: 300px;
     text-decoration: none; 
 
     /* display: flex;
@@ -20,3 +21,17 @@ export const Item = styled.li`
         box-shadow: 0px 2px 10px 2px grey;
     }
 `
+export const Text = styled.p`
+    text-decoration: none;
+    color: #153462;
+    padding: 8px;
+`
+
+export const LinkStyled = styled(Link)`
+    text-decoration: none;
+    font-size: 20px;
+    &:hover,
+    &:focus {
+        color: black;
+    }
+`;

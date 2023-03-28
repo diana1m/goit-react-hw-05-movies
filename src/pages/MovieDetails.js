@@ -1,6 +1,7 @@
-import { useEffect, useState, Suspense  } from 'react';
-import { Link, Outlet, useParams,  useLocation} from 'react-router-dom';
+import { useEffect, useState  } from 'react';
+import { useParams,  useLocation} from 'react-router-dom';
 import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
+import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 
 import { movieById } from 'services/getMovie';
 
@@ -28,32 +29,13 @@ const MovieDetails = () => {
 
   const goBackLink = location.state?.from ?? '/';
 
-  const image = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923" ;
- 
   return (
     <main>
       <GoBackBtn path={goBackLink}>Go Back</GoBackBtn>
+
       {error && <p>Ooooops... {error}</p>}
-      <div> 
-        <h1>{movie.title}</h1>
-        <img src={image} alt="poster" width='300px'/>
-        <p>User score: {Math.round(movie.vote_average * 10)}%</p>
-        <h2>Overview</h2>
-        <p>{movie.overview}</p>
-        <h2>Genres</h2>
-        <p>{movie.genres.map(genre => genre.name + " ")}</p>
-      </div>
-
-      <div>
-        <Link to = "cast">Cast </Link>
-        <Link to = "reviews"> Reviews</Link>
-      </div>
       
-      {/* <MovieCard movie={movie} /> */}
-
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet />
-      </Suspense>
+      <MovieInfo movie = {movie}/> 
     </main>
   );
 };

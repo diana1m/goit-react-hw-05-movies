@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
-import { Item } from "./MovieCard.styled";
+import { useLocation } from "react-router-dom";
+import { Item, Text, LinkStyled } from "./MovieCard.styled";
 
 export const MovieCard = ({movie: {title, id, poster_path}}) => {
     const location = useLocation();
@@ -8,10 +8,10 @@ export const MovieCard = ({movie: {title, id, poster_path}}) => {
 
     return(
         <Item>
-            <Link to={`/movies/${id}`} state={{ from: location }}>
-                <img src={image} alt="poster" width='150px' height='225px'/>
-                <p> {title}</p>
-            </Link>
+            <LinkStyled to={`/movies/${id}`} state={{ from: location }}>
+                <img src={image} alt="poster" width='300px' height='450px'/>
+                <Text>{title}</Text>
+            </LinkStyled>
         </Item>
     )
 }
